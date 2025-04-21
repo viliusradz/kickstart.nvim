@@ -662,6 +662,7 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -710,6 +711,10 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'isort',
         'black',
+        'csharp_ls',
+        -- 'omnisharp-mono',
+        -- 'omnisharp',
+        'csharpier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -762,6 +767,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        omnisharp = { 'csharpier' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
         --
@@ -1005,6 +1011,13 @@ require('lazy').setup({
     },
   },
 })
+-- require('lspconfig').omnisharp_mono.setup {
+
+--   settings = {
+--     useModernNet = false,
+--     monoPath = vim.fn.system('which', 'mono'),
+--   },
+-- }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
