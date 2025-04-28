@@ -497,10 +497,7 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
-      {
-        'saghen/blink.cmp',
-        -- dependencies = { 'rafamadriz/friendly-snippets' },
-      },
+      'saghen/blink.cmp',
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -735,7 +732,6 @@ require('lazy').setup({
         'csharpier',
         'clangd',
         'clang-format',
-        -- 'rust_analyzer'
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -991,7 +987,6 @@ require('lazy').setup({
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
       },
-      -- indent = { enable = true, disable = { 'ruby' } },
       indent = { enable = true, disable = { 'ruby' } },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
@@ -1020,14 +1015,9 @@ require('lazy').setup({
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
-
-  -- require 'custom.plugins.language_support.rustaceanvim',
+  --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  {
-    { import = 'custom.plugins' },
-    { import = 'custom.plugins.language_support' },
-    { import = 'custom.plugins.debug' },
-  },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
