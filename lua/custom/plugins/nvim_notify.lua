@@ -25,7 +25,6 @@ return {
       top_down = true,
     }
     vim.notify = require('notify').notify
-    require('notify').notify('hi', 'error')
   end,
   priority = 900,
 }

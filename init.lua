@@ -724,6 +724,7 @@ require('lazy').setup({
         'csharpier',
         'clangd',
         'clang-format',
+        -- 'rust_analyzer'
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -1007,9 +1008,14 @@ require('lazy').setup({
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
-  --
+
+  -- require 'custom.plugins.language_support.rustaceanvim',
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  { import = 'custom.plugins' },
+  {
+    { import = 'custom.plugins' },
+    { import = 'custom.plugins.language_support' },
+    { import = 'custom.plugins.debug' },
+  },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
