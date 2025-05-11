@@ -119,7 +119,11 @@ vim.schedule(function()
 end)
 
 -- Enable break indent
+<<<<<<< HEAD
+-- vim.opt.breakindent = true
+=======
 vim.o.breakindent = true
+>>>>>>> c92ea7c (Replace vim.opt with vim.o (#1495))
 
 -- Save undo history
 vim.o.undofile = true
