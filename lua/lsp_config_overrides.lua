@@ -1,0 +1,17 @@
+-- vim.lsp.config.asm_lsp = {
+--   flags = {
+--     assembly = {
+--       assemblers = {
+--         gas = false,
+--         nasm = true,
+--       },
+--       instruction_sets = {
+--         x86_64 = true,
+--       },
+--       opts = {
+--         diagnostics = true,
+--       },
+--       version = '0.69',
+--     },
+--   },
+-- }
