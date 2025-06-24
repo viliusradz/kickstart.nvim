@@ -722,8 +722,8 @@ require('lazy').setup({
             },
           },
         },
+        yamlls = {},
       }
-
       -- Ensure the servers and tools above are installed
       --
       -- To check the current status of installed tools and/or manually install
@@ -750,6 +750,7 @@ require('lazy').setup({
         'clang-format',
         'rust-analyzer',
         'asmfmt',
+        'yamlfmt',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
