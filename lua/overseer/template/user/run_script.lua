@@ -13,6 +13,8 @@ local get_cmd = function()
     else
       cmd = { 'py' }
     end
+  elseif vim.bo.filetype == 'asm' then
+    cmd = { 'nasm', '-f', 'elf64' }
   end
   return cmd
 end
