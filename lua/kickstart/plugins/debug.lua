@@ -69,6 +69,22 @@ return {
       end,
       desc = 'Debug: Set Breakpoint',
     },
+    {
+      '<leader>du',
+      function()
+        require('dapui').toggle {}
+      end,
+      desc = 'Dap UI',
+    },
+    {
+      '<leader>de',
+      function()
+        require('dapui').eval()
+      end,
+      desc = 'Eval',
+      mode = { 'n', 'v' },
+    },
+
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       '<Leader>ds',
@@ -149,5 +165,37 @@ return {
     }
     require('dap-python').setup '$MASON/packages/debugpy/venv/bin/python'
     -- require('dap-python').setup('/usr/bin/python3');
+    -- dap.configurations.java = {
+    --   {
+    --     type = 'java',
+    --     request = 'attach',
+    --     name = 'Debug (Attach) local ondemand webui process',
+    --     -- pid = require('dap.utils').pick_process,
+    --     processId = '${command:pickProcess}',
+    --     hostName = 'localhost',
+    --     port = 9598,
+    --     -- projectName = "${workspaceFolderBasename}"
+    --     -- it seems  to need the specific project name in order to function correctly when evaluating expressions in repl, etc.
+    --     projectName = 'webui',
+    --   },
+    --   {
+    --     type = 'java',
+    --     request = 'attach',
+    --     name = 'Debug (Attach) local process ',
+    --     processId = '${command:pickProcess}',
+    --     hostName = 'localhost',
+    --     port = 9598,
+    --     projectName = '${workspaceFolderBasename}',
+    --   },
+    -- launching stuff directly did not work for me cause gradle
+    -- {
+    --   type = 'java',
+    --   request = 'launch',
+    --   name = "Debug (Launch) ondemand - webui dev in cloud",
+    --   -- hostName = "localhost",
+    --   -- port = 9598,
+    --   projectName = "webui"
+    -- },
+    -- }
   end,
 }
