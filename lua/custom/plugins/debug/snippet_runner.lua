@@ -16,8 +16,6 @@ if vim.uv.os_uname().sysname == 'Linux' then
       }
 
       -- Setting bindings for sniprun
-      vim.api.nvim_set_keymap('v', '<leader>r', '<Plug>SnipRun', { silent = true })
-      vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>SnipRun', { silent = true })
       -- vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>SnipRunOperator', { silent = true })
     end,
   }

@@ -14,17 +14,17 @@ return {
         WARN = ' ',
       },
       level = 2,
-      minimum_width = 50,
+      minimum_width = 20,
       render = 'default',
       stages = 'slide',
       time_formats = {
         notification = '%T',
         notification_history = '%FT%T',
       },
-      timeout = 50000,
+      timeout = 5000,
       top_down = true,
     }
     vim.notify = require('notify').notify
   end,
-  priority = 900,
+  priority = 1900,
 }
