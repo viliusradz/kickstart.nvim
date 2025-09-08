@@ -1,3 +1,26 @@
+local get_assembly_files
+get_assembly_files = function(base_dir)
+  local dir = vim.fn.readdir(base_dir)
+  local assembly_files = {}
+  for _, v in pairs(dir) do
+    local child = base_dir .. '/' .. v
+    if vim.fn.isdirectory(child) == 1 then
+      for _, sub_file in pairs(get_assembly_files(child)) do
+        table.insert(assembly_files, sub_file)
+      end
+    else
+      local last_elem = ''
+      for elem in string.gmatch(child, '([^' .. '/' .. ']+)') do
+        last_elem = elem
+      end
+      if string.find(last_elem, '.s') then
+        table.insert(assembly_files, child)
+      end
+    end
+  end
+  return assembly_files
+end
+
 local get_cmd = function(file, dest_path)
   local cmd = {}
   -- go
@@ -17,7 +40,11 @@ local get_cmd = function(file, dest_path)
   elseif vim.bo.filetype == 'asm' then
     -- cmd = { 'nasm', '-f', 'elf64' }
     -- vim.fn.expand ''
-    return 'gcc -no-pie -o ' .. dest_path .. ' ' .. file .. ' && ' .. dest_path
+    local cwd = vim.fn.getcwd()
+    local asm_files = get_assembly_files(cwd)
+
+    dest_path = cwd .. '/' .. 'program'
+    return 'gcc -no-pie -o ' .. dest_path .. ' ' .. table.concat(asm_files, ' ') .. ' && ' .. dest_path
   end
   return cmd
 end
