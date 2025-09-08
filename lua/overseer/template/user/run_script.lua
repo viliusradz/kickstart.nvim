@@ -1,4 +1,4 @@
-local get_cmd = function(file, dest_path, dest_file)
+local get_cmd = function(file, dest_path)
   local cmd = {}
   -- go
   if vim.bo.filetype == 'go' then
@@ -16,6 +16,7 @@ local get_cmd = function(file, dest_path, dest_file)
     table.insert(cmd, file)
   elseif vim.bo.filetype == 'asm' then
     -- cmd = { 'nasm', '-f', 'elf64' }
+    -- vim.fn.expand ''
     return 'gcc -no-pie -o ' .. dest_path .. ' ' .. file .. ' && ' .. dest_path
   end
   return cmd
@@ -26,9 +27,8 @@ return {
   builder = function()
     -- default config
     local file = vim.fn.expand '%:p'
-    local file_name = vim.fn.expand '%:r'
     local dest_path = vim.fn.expand '%:p:r'
-    local cmd = get_cmd(file, dest_path, file_name)
+    local cmd = get_cmd(file, dest_path)
 
     return {
       cmd = cmd,
