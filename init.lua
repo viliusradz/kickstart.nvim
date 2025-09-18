@@ -725,7 +725,7 @@ require('lazy').setup({
           },
         },
         yamlls = {},
-        jdtls = {},
+        -- jdtls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -769,7 +769,8 @@ require('lazy').setup({
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            vim.lsp.config(server_name).setup(server)
+            -- require('lspconfig')[server_name].sertup(server)
           end,
         },
       }
@@ -1031,6 +1032,8 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  { import = 'custom.plugins' },
+  { import = 'custom.plugins.language_support' },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -1050,8 +1053,6 @@ require('lazy').setup({
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
-  { import = 'custom.plugins' },
-  { import = 'custom.plugins.language_support' },
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --

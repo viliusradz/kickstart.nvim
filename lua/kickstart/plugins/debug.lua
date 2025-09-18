@@ -152,8 +152,8 @@ return {
     end
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
+    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+    dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- Install golang specific config
     require('dap-go').setup {
@@ -163,7 +163,14 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
-    require('dap-python').setup '$MASON/packages/debugpy/venv/bin/python'
+    -- require('dap-python').setup '$MASON/packages/debugpy/venv/bin/python'
+    -- dap.configurations.asm = {
+    --   type = 'asmdbg',
+    --   request = 'launch',
+    --   name = 'Launch CPP',
+    --   MIMode = 'gdb',
+    --   miDebuggerPath = '/usr/bin/gdb',
+    -- }
     -- require('dap-python').setup('/usr/bin/python3');
     -- dap.configurations.java = {
     --   {

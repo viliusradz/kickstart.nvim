@@ -38,8 +38,10 @@ return {
         },
       },
     }
+    -- vim.lsp.jdtls.setup {}
     require('lspconfig').jdtls.setup {
       -- lsp settings
     }
+    -- vim.lsp.config.jdtls.setup {}
   end,
 }
