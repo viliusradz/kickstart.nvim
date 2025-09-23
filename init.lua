@@ -755,6 +755,8 @@ require('lazy').setup({
         'rust-analyzer',
         'asmfmt',
         'yamlfmt',
+        'marksman',
+        'markdownlint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

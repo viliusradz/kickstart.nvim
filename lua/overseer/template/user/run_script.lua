@@ -13,6 +13,7 @@ get_assembly_files = function(base_dir)
       for elem in string.gmatch(child, '([^' .. '/' .. ']+)') do
         last_elem = elem
       end
+      last_elem = string.sub(last_elem, string.len(last_elem) - 1, string.len(last_elem))
       if string.find(last_elem, '.s') then
         table.insert(assembly_files, child)
       end
