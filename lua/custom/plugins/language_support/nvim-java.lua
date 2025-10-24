@@ -1,4 +1,4 @@
-return {
+n = {
   'nvim-java/nvim-java',
   lazy = false,
   dependencies = {
@@ -40,8 +40,10 @@ return {
     }
     -- vim.lsp.jdtls.setup {}
     require('lspconfig').jdtls.setup {
+      -- vim.lsp.config('jdtls').setup {}
       -- lsp settings
     }
     -- vim.lsp.config.jdtls.setup {}
   end,
 }
+return {}
