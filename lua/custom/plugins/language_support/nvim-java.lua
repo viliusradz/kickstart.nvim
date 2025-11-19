@@ -29,7 +29,7 @@ n = {
           configuration = {
             runtimes = {
               {
-                name = 'JavaSE-21',
+                name = 'JavaSE-25',
                 path = '/usr/lib/jvm/default-runtime',
                 default = true,
               },
@@ -39,11 +39,11 @@ n = {
       },
     }
     -- vim.lsp.jdtls.setup {}
-    require('lspconfig').jdtls.setup {
-      -- vim.lsp.config('jdtls').setup {}
-      -- lsp settings
-    }
-    -- vim.lsp.config.jdtls.setup {}
+    -- require('lspconfig').jdtls.setup {
+    -- vim.lsp.config('jdtls').setup {},
+    -- lsp settings
+    -- }
+    vim.lsp.config.jdtls.setup {}
   end,
 }
 return {}

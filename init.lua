@@ -725,7 +725,7 @@ require('lazy').setup({
           },
         },
         yamlls = {},
-        -- jdtls = {},
+        jdtls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -755,8 +755,9 @@ require('lazy').setup({
         'rust-analyzer',
         'asmfmt',
         'yamlfmt',
-        'marksman',
-        'markdownlint',
+        -- 'marksman',
+        -- 'markdownlint',
+        'texlab',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -1005,8 +1006,8 @@ require('lazy').setup({
         'html',
         'lua',
         'luadoc',
-        'markdown',
-        'markdown_inline',
+        -- 'markdown',
+        -- 'markdown_inline',
         'query',
         'vim',
         'vimdoc',
