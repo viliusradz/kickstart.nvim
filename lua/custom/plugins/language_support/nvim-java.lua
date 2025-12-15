@@ -1,24 +1,24 @@
 n = {
   'nvim-java/nvim-java',
-  lazy = false,
-  dependencies = {
-    'nvim-java/lua-async-await',
-    'nvim-java/nvim-java-core',
-    'nvim-java/nvim-java-test',
-    'nvim-java/nvim-java-dap',
-    'MunifTanjim/nui.nvim',
-    'neovim/nvim-lspconfig',
-    'mfussenegger/nvim-dap',
-    {
-      'williamboman/mason.nvim',
-      opts = {
-        registries = {
-          'github:nvim-java/mason-registry',
-          'github:mason-org/mason-registry',
-        },
-      },
-    },
-  },
+  -- lazy = false,
+  -- dependencies = {
+  --   'nvim-java/lua-async-await',
+  --   'nvim-java/nvim-java-core',
+  --   'nvim-java/nvim-java-test',
+  --   'nvim-java/nvim-java-dap',
+  --   'MunifTanjim/nui.nvim',
+  --   'neovim/nvim-lspconfig',
+  --   'mfussenegger/nvim-dap',
+  --   {
+  --     'williamboman/mason.nvim',
+  --     opts = {
+  --       registries = {
+  --         'github:nvim-java/mason-registry',
+  --         'github:mason-org/mason-registry',
+  --       },
+  --     },
+  --   },
+  -- },
   config = function()
     require('java').setup {
       jdk = {
@@ -38,8 +38,8 @@ n = {
         },
       },
     }
+    vim.lsp.enable 'jdtls'
     -- vim.lsp.jdtls.setup {}
-    require('lspconfig').jdtls.setup {}
     -- vim.lsp.config('jdtls').setup {}
     -- lsp settings
     -- }
