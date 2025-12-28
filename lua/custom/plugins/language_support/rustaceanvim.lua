@@ -10,6 +10,10 @@ vim.g.rustaceanvim = {
   --- @type rustaceanvim.dap.opts
   dap = {},
 }
+vim.keymap.set('n', '<leader>dR', function()
+  vim.cmd.RustLsp 'debuggables'
+  -- or vim.lsp.buf.codeAction() if you don't want grouping.
+end, { desc = '[D]ebug [R]ust' })
 
 return {
   'mrcjkb/rustaceanvim',

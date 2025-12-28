@@ -163,6 +163,15 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+    -- dap.adapters.codelldb = {
+    --   type = 'server',
+    --   port = '${port}',
+    --   executable = {
+    --     command = '/usr/bin/codelldb',
+    --     args = { '--port', '${port}' },
+    --   },
+    -- }
+
     -- require('dap-python').setup '$MASON/packages/debugpy/venv/bin/python'
     -- dap.configurations.asm = {
     --   type = 'asmdbg',
