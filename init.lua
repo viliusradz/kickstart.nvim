@@ -646,6 +646,11 @@ require('lazy').setup({
               })
             end, '[T]oggle Inlay [H]ints')
           end
+          map('<leader>dd', function()
+            vim.diagnostic.open_float {
+              bufnr = event.buf,
+            }
+          end, 'Show diagnostics under cursor')
         end,
       })
 
@@ -654,7 +659,7 @@ require('lazy').setup({
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
+        underline = { severity = vim.diagnostic.severity.WARN },
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
