@@ -659,7 +659,7 @@ require('lazy').setup({
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.WARN },
+        underline = { severity = vim.diagnostic.severity.HINT },
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -757,12 +757,13 @@ require('lazy').setup({
         'csharpier',
         'clangd',
         'clang-format',
-        'rust-analyzer',
+        -- 'rust-analyzer',
         'asmfmt',
         'yamlfmt',
         -- 'marksman',
         -- 'markdownlint',
         'texlab',
+        'zls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -1042,6 +1043,7 @@ require('lazy').setup({
   },
   { import = 'custom.plugins' },
   { import = 'custom.plugins.language_support' },
+  { import = 'custom.plugins.debug' },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
