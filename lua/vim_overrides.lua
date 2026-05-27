@@ -1,4 +1,5 @@
-vim.notify = require('notify').notify
+-- vim.notify = require('notify').notify
+vim.notify = require('fidget').notify
 vim.print = require('notify').notify
 
 -- vim.opt.tabstop = 4 -- size of a hard tabstop (ts).
