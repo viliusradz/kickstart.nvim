@@ -1001,8 +1001,10 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    -- branch = 'master',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    main = 'nvim-treesitter', -- Sets main module to use for opts, NOW PORTER TO DEFAULT
+    -- main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = {
@@ -1034,6 +1036,9 @@ require('lazy').setup({
       -- indent = { enable = true, disable = { 'ruby' } },
       indent = { enable = true, disable = { 'ruby' } },
     },
+    -- config = {
+    --   require('nvim-treesitter.configs').setup(opts),
+    -- },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --
